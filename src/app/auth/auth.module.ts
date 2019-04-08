@@ -5,6 +5,7 @@ import {ForgotPasswordComponent} from './forgot-password/forgot-password.compone
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {AuthRoutingModule} from './auth-routing.module';
 import {NgModule} from '@angular/core';
+import { FooterComponent } from './_shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {NgModule} from '@angular/core';
       RegisterComponent,
       ForgotPasswordComponent,
       ResetPasswordComponent,
+      FooterComponent,
   ],
   imports: [
       AuthRoutingModule,
