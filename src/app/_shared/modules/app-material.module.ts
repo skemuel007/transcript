@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { MatInputModule, MatPaginatorModule, MatSortModule,
-    MatButtonModule, MatFormFieldModule, MatIconModule, MatToolTipModule,
+    MatButtonModule, MatFormFieldModule, MatIconModule, MatTooltipModule,
     MatListModule, MatBadgeModule, MatExpansionModule, MatTabsModule,
     MatSelectModule, MatDatepickerModule, MatTableModule, MatProgressBarModule,
     MatCheckboxModule, MatRadioModule } from '@angular/material';
@@ -11,14 +11,14 @@ import { MatInputModule, MatPaginatorModule, MatSortModule,
     imports: [
         CommonModule,
         MatInputModule, MatPaginatorModule, MatSortModule,
-        MatButtonModule, MatFormFieldModule, MatIconModule, MatToolTipModule,
+        MatButtonModule, MatFormFieldModule, MatIconModule, MatTooltipModule,
         MatListModule, MatBadgeModule, MatExpansionModule, MatTabsModule,
         MatSelectModule, MatDatepickerModule, MatTableModule, MatProgressBarModule,
         MatCheckboxModule, MatRadioModule
     ],
     exports: [
         MatInputModule, MatPaginatorModule, MatSortModule,
-        MatButtonModule, MatFormFieldModule, MatIconModule, MatToolTipModule,
+        MatButtonModule, MatFormFieldModule, MatIconModule, MatTooltipModule,
         MatListModule, MatBadgeModule, MatExpansionModule, MatTabsModule,
         MatSelectModule, MatDatepickerModule, MatTableModule, MatProgressBarModule,
         MatCheckboxModule, MatRadioModule
