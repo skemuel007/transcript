@@ -36,9 +36,9 @@
     </div>
     <div class="row py-2">
         <div class="col">
-            <button mat-raised-button color="primary" class="btn btn-block" [disabled]="!loginFormGroup.valid" (click)="login()">
+            <button mat-raised-button color="primary" class="btn btn-block" [disabled]="!loginFormGroup.valid || loading" (click)="login()">
                 <mat-progress-bar [color]="primary"
-                    [mode]="indeterminate"
+                    [mode]="'indeterminate'"
                     [value]="50"
                     [bufferValue]="75" class="full-width"
                     *ngIf="loading">

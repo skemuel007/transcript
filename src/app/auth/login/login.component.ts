@@ -4,7 +4,6 @@ import {CustomErrorStateMatcher} from '../../_shared/utils/custom-error-state-ma
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../_shared/services/authentication.service';
 import {ToastrService} from 'ngx-toastr';
-import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -43,8 +42,7 @@ export class LoginComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private auth: AuthenticationService,
-              private toastr: ToastrService,
-              httpClient: HttpClient) { }
+              private toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -58,6 +56,45 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+      // TODO: remove console.log
+      console.log(this.loginFormGroup.value);
+      this.loading = true;
+      this.buttonText = 'Signing in...';
+      this.auth.login(this.loginFormGroup.value)
+          .subscribe(
+              (result) => {
+                  this.subscribeResult(true, null);
+
+              },
+              (error) => {
+                  this.subscribeResult(false, error);
+
+              }
+          );
+  }
+
+  subscribeResult(success: boolean, errorMessage: any): void {
+      if (success) {
+          this.toastr.success('Login successful', 'Login success');
+      } else {
+          this.toastr.error('Error: ' + errorMessage.message, 'Login error');
+      }
+      this.loading = false;
+      this.buttonText = 'Sign in';
+      this.clearForm();
+
+  }
+
+  clearForm(): void {
+      this.loginFormGroup.reset();
+      this.initializeFormGroup();
+  }
+
+  initializeFormGroup(): void {
+      this.loginFormGroup.setValue({
+         email: '',
+         password: ''
+      });
   }
 
 }

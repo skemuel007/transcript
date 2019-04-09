@@ -4,8 +4,8 @@ export class User {
     name: string;
     phone: string;
     category: string;
-    mat_no: string;
+    matNo: string;
     id: number;
     email: string;
-    token: string;
+    token?: string;
 }

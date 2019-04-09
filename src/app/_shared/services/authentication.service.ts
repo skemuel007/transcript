@@ -29,17 +29,24 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  createUser(result) {
+  createUser(result: any): any {
     const user = new User();
-    // TODO: user parameters needed
+    user.type = result.user[0].type;
+    user.name = result.user[0].name;
+    user.phone = result.user[0].phone;
+    user.category = result.user[0].category;
+    user.matNo = result.user[0].mat_no;
+    user.id = result.user[0].id;
+    user.email = result.user[0].email;
+    user.token =  result.token;
     return user;
   }
 
   login(loginCredentials): Observable<any> {
       return this.http.post(`${this.apiUrl}/user/signin`, JSON.stringify(loginCredentials),
         HttpOptions.getHttpOptions()).pipe(
-            map(result => {
-              if (result.token && result.user) {
+            map( (result: any) => {
+              if (result.token && result.token) {
                 const user = this.createUser(result);
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);
@@ -47,8 +54,6 @@ export class AuthenticationService {
               return result;
             })
       );
-    // TODO: load user subject before set local storage item
-      return null;
   }
 
   isLoggedIn(): boolean {
