@@ -5,13 +5,19 @@ import {PagesModule} from './pages/pages.module';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => PagesModule
+    path: 'pages',
+    // loadChildren: () => PagesModule
+    loadChildren: './pages/pages.module#PagesModule'
 
   },
   {
     path: 'auth',
-    loadChildren: () => AuthModule
+    loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'pages'
   }
 ];
 

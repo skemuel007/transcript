@@ -33,6 +33,12 @@ export class AuthenticationService {
     return user;
   }
 
+  login(loginCredentials): Observable<any> {
+
+    // TODO: load user subject before set local storage item
+    return null;
+  }
+
   isLoggedIn(): boolean {
     if ( this.currentUserValue != null) {
       return true;
