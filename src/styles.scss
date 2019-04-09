@@ -1,10 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 .login-dark {
   height: 1000px;
   /*background: #475d62 url(../../assets/img/star-sky.jpg);*/
   background-size: cover;
   position: relative;
+}
+
+.full-width {
+  width: 100%;
+}
+
+table {
+  width: 100%;
 }
 
 .login-dark form {
@@ -17,7 +28,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  color: #fff;
   box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
 }
 
@@ -35,7 +45,6 @@
   border-radius: 0;
   box-shadow: none;
   outline: none;
-  color: inherit;
 }
 
 .login-dark form .btn-primary {
@@ -157,6 +166,16 @@
   text-decoration: none;
 }
 
+radio-group-label {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.radio-button {
+  margin: 5px;
+}
+
+.form-color {
+  color: #343a40;
+}

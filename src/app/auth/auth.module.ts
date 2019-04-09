@@ -7,6 +7,9 @@ import {AuthRoutingModule} from './auth-routing.module';
 import {NgModule} from '@angular/core';
 import { FooterComponent } from './_shared/footer/footer.component';
 import {SharedModule} from '../_shared/modules/shared.module';
+import {AppMaterialModule} from '../_shared/modules/app-material.module';
+import {CommonModule} from '@angular/common';
+import {AuthenticationService} from '../_shared/services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,12 @@ import {SharedModule} from '../_shared/modules/shared.module';
       FooterComponent,
   ],
   imports: [
+      CommonModule,
       AuthRoutingModule,
       SharedModule,
-
+      AppMaterialModule,
   ],
-  providers: [],
+  providers: [AuthenticationService],
   entryComponents: [],
 })
 
