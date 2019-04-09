@@ -6,6 +6,7 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
 import {AuthRoutingModule} from './auth-routing.module';
 import {NgModule} from '@angular/core';
 import { FooterComponent } from './_shared/footer/footer.component';
+import {SharedModule} from '../_shared/modules/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { FooterComponent } from './_shared/footer/footer.component';
   ],
   imports: [
       AuthRoutingModule,
+      SharedModule,
+
   ],
   providers: [],
   entryComponents: [],
