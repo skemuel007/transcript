@@ -46,7 +46,7 @@ export class AuthenticationService {
       return this.http.post(`${this.apiUrl}/user/signin`, JSON.stringify(loginCredentials),
         HttpOptions.getHttpOptions()).pipe(
             map( (result: any) => {
-              if (result.token && result.token) {
+              if (result.token && result.user) {
                 const user = this.createUser(result);
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);
