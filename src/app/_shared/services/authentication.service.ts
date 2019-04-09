@@ -37,7 +37,6 @@ export class AuthenticationService {
     if ( this.currentUserValue != null) {
       return true;
     }
-
     return false;
   }
 

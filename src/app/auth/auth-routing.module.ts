@@ -11,31 +11,11 @@ const routes: Routes = [
         path: '',
         component: AuthComponent,
         children: [
-            {
-                path: 'login',
-                component: LoginComponent,
-                data: {title: 'Login'}
-            },
-            {
-                path: 'register',
-                component: RegisterComponent,
-                data: {title: 'Register'}
-            },
-            {
-                path: 'forgot-password',
-                component: ForgotPasswordComponent,
-                data: {title: 'Forgot Password'}
-            },
-            {
-                path: 'reset-password',
-                component: ResetPasswordComponent,
-                data: {title: 'Reset Password'}
-            },
-            {
-                path: '',
-                redirectTo: 'login',
-                pathMatch: 'full'
-            }
+            {path: 'login', component: LoginComponent, data: {title: 'Login'}},
+            {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
+            {path: 'forgot-password', component: ForgotPasswordComponent, data: {title: 'Forgot Password'}},
+            {path: 'reset-password', component: ResetPasswordComponent, data: {title: 'Reset Password'}},
+            {path: '', redirectTo: 'login', pathMatch: 'full'}
         ]
     }
 
