@@ -3,6 +3,8 @@ import {environment} from '../../../environments/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
 import {HttpClient} from '@angular/common/http';
+import {HttpOptions} from '../utils/http_options';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +36,19 @@ export class AuthenticationService {
   }
 
   login(loginCredentials): Observable<any> {
-
+      return this.http.post(`${this.apiUrl}/user/signin`, JSON.stringify(loginCredentials),
+        HttpOptions.getHttpOptions()).pipe(
+            map(result => {
+              if (result.token && result.user) {
+                const user = this.createUser(result);
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.currentUserSubject.next(user);
+              }
+              return result;
+            })
+      );
     // TODO: load user subject before set local storage item
-    return null;
+      return null;
   }
 
   isLoggedIn(): boolean {

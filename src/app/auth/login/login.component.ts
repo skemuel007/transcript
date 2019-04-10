@@ -4,6 +4,7 @@ import {CustomErrorStateMatcher} from '../../_shared/utils/custom-error-state-ma
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../_shared/services/authentication.service';
 import {ToastrService} from 'ngx-toastr';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -42,7 +43,8 @@ export class LoginComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private auth: AuthenticationService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              httpClient: HttpClient) { }
 
   ngOnInit() {
 
@@ -56,7 +58,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-
   }
 
 }
