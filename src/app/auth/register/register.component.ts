@@ -126,6 +126,8 @@ export class RegisterComponent implements OnInit {
         password: this.passwordFormControl.value
     };
 
+    // TODO: please remove
+    console.log(registerFormData);
     this.auth.register(registerFormData)
         .subscribe(
             (result) => {
@@ -143,7 +145,7 @@ export class RegisterComponent implements OnInit {
       this.toastr.success('Registration successful', 'Registration success');
       this.clearForm();
     } else {
-      this.toastr.error('Error: ' + errorMessage.message, 'Registration error');
+      this.toastr.error('An error occured while creating your account, please try again later', 'Registration error');
     }
     this.loading = false;
     this.buttonText = 'Register';
