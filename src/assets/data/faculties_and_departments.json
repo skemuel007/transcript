@@ -1,0 +1,70 @@
+{
+  "faculties": [
+    {
+      "faculty": "Faculty of Agric",
+      "departments": [
+        "Department of Agricultural Economics and Extension",
+        "Department of Animal Science and Fisheries Management",
+        "Department of Crop Production, Soil and Environmental Management",
+        "Department of Food Science and Technology"
+      ]
+    },
+    {
+      "faculty": "Faculty of Science",
+      "departments": [
+        "Department of Biological Sciences",
+        "Department of Biochemistry",
+        "Department of Chemistry and Industrial Chemistry",
+        "Department of Computer Science and Information Technology",
+        "Department of Mathematics and Statistics",
+        "Department of Physics and Solar Energy"
+      ]
+    },
+    {
+      "faculty": "Faculty of Education",
+      "departments": [
+        "Department of Curriculum Studies and Educational Foundations",
+        "Department of Science Education",
+        "Department of Library and Information Science"
+      ]
+    },
+    {
+      "faculty": "Faculty of Law",
+      "departments": [
+        "Department of Private and Commercial Law",
+        "Department of Public and International Law"
+      ]
+    },
+    {
+      "faculty": "College of Health Sciences",
+      "departments": [
+        "Department of Medicine and Surgery",
+        "Department of Physiology",
+        "Department of Anatomy",
+        "Department of Nursing",
+        "Department of Physiotherapy"
+      ]
+    },
+    {
+      "faculty": "Faculty of Humanities",
+      "departments": [
+        "Department of Communication and Performing Arts",
+        "Department of English",
+        "Department of History and International Studies",
+        "Department of Philosophy and Religious Studies"
+      ]
+    },
+    {
+      "faculty": "Social and Management Sciences",
+      "departments": [
+        "Department of Accounting and Finance",
+        "Department of Business Administration",
+        "Department of Economics",
+        "Department of Mass Communication",
+        "Department of Political Science and Diplomatic Studies",
+        "Department of Sociology",
+        "Department of Industrial Relations and Personnel Management"
+      ]
+    }
+  ]
+}

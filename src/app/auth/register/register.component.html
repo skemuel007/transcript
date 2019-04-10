@@ -112,7 +112,7 @@
       </div>
       <div class="row py-2">
         <div class="col-md">
-          <button mat-raised-button color="primary" [disabled]="registerFormGroup.invalid || loading" (click)="register()">
+          <button mat-raised-button color="primary" class="btn btn-block" [disabled]="registerFormGroup.invalid || loading" (click)="register()">
             <mat-progress-bar [color]="'primary'"
                               [mode]="'indeterminate'"
                               [value]="50"
