@@ -10,6 +10,7 @@ import {SharedModule} from '../_shared/modules/shared.module';
 import {AppMaterialModule} from '../_shared/modules/app-material.module';
 import {CommonModule} from '@angular/common';
 import {AuthenticationService} from '../_shared/services/authentication.service';
+import {FacultDepartmentService} from '../_shared/services/facult-department.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import {AuthenticationService} from '../_shared/services/authentication.service'
       SharedModule,
       AppMaterialModule,
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, FacultDepartmentService],
   entryComponents: [],
 })
 

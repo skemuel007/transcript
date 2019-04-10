@@ -2,49 +2,125 @@
 <div class="register-photo" style="background-image: url('assets/img/main_gate.jpg');background-size: cover;">
   <div class="form-container">
     <div class="image-holder" style="background-image: url('assets/img/student.png');background-position: center;background-size: contain;background-repeat: no-repeat;"></div>
-    <form method="post">
+    <form method="post" [formGroup]="registerFormGroup">
       <h2 class="text-center">
         <strong>Create</strong> an account.
       </h2>
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Name" style="background-color: rgb(255,255,255);">
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Fullname</mat-label>
+            <input matInput [formControl]="fullNameFormControl" [errorStateMatcher]="matcher" class="form-color">
+            <mat-error *ngIf="fullNameFormControl.hasError('required')">
+              Fullname is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group">
-        <input class="form-control" type="email" name="email" placeholder="Email" style="background-color: rgb(255,255,255);">
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" class="form-color">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Matric Number" style="background-color: rgb(255,255,255);">
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Matric No.</mat-label>
+            <input matInput [formControl]="matricNoFormControl" [errorStateMatcher]="matcher" class="form-color">
+            <mat-hint>Matric format (e.g, 15002)</mat-hint>
+            <mat-error *ngIf="matricNoFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
+              Matric no. must be number only and not more than 5 digits
+            </mat-error>
+            <mat-error *ngIf="matricNoFormControl.hasError('required')">
+              Matric no. is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group">
-        <select class="form-control" style="background-color: rgb(255,255,255);">
-          <optgroup label="Faculties">
-            <option value="12" selected="">Faculty of Agriculture</option>
-            <option value="19">Faculty of Basic Clinical Sciences</option>
-            <option value="18">Faculty of Basic Medical and Health Science</option>
-            <option value="20">Faculty of Clinical Sciences</option>
-            <option value="13">Faculty of Education</option>
-            <option value="14">Faculty of Humanities</option>
-            <option value="17">Faculty of Law</option>
-            <option value="15">Faculty of Science</option>
-            <option value="16">Faculty of Social and Management Science</option>
-          </optgroup>
-        </select>
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Faculty</mat-label>
+            <mat-select [formControl]="facultyFormControl" #faculty [errorStateMatcher]="matcher" (selectionChange)="onFacultySelection($event, faculty)">
+              <mat-option *ngFor="let faculty of faculties" [value]="faculty">{{faculty.faculty}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="facultyFormControl.hasError('required')">Please select a faculty</mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group">
-        <select class="form-control" style="background-color: rgb(255,255,255);">
-          <optgroup label="Departments"></optgroup>
-        </select>
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Department</mat-label>
+            <mat-select [formControl]="departmentFormControl" [errorStateMatcher]="matcher">
+              <mat-option *ngFor="let department of departments" [value]="department">{{ department }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="departmentFormControl.hasError('required')">Please select a department</mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group">
-        <select class="form-control" style="background-color: rgb(255,255,255);">
-          <optgroup label="Programme"></optgroup>
-        </select>
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Programme</mat-label>
+            <input matInput [formControl]="programmeFormControl" [errorStateMatcher]="matcher" class="form-color">
+            <mat-hint>E.g Chemistry, where no programme, please enter name of department</mat-hint>
+            <mat-error *ngIf="programmeFormControl.hasError('required')">
+              Programme is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group">
-        <input class="form-control" type="password" name="password" placeholder="Password" style="background-color: rgb(255,255,255);">
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput [formControl]="phoneFormControl" [errorStateMatcher]="matcher" class="form-color">
+            <mat-error *ngIf="phoneFormControl.hasError('maxlength') && !phoneFormControl.hasError('required')">
+              Phone no. must not be more than 11 digits
+            </mat-error>
+            <mat-error *ngIf="phoneFormControl.hasError('required')">
+              Phone no. is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(182,0,34);">Sign Up</button>
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" #password
+                   [errorStateMatcher]="matcher" class="form-color">
+            <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility': 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+              Password length must not be less than 5 characters.
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col-md">
+          <button mat-raised-button color="primary" [disabled]="registerFormGroup.invalid || loading" (click)="register()">
+            <mat-progress-bar [color]="'primary'"
+                              [mode]="'indeterminate'"
+                              [value]="50"
+                              [bufferValue]="75" class="full-width" *ngIf="loading">
+            </mat-progress-bar>
+            {{ buttonText }}
+          </button>
+        </div>
       </div>
       <a routerLink="/auth/login" class="already">You already have an account? Login here.</a>
     </form>

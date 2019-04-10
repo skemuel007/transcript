@@ -25,27 +25,39 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
+  /**
+   * get the current user subject value mapping into a user object
+   */
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
 
+  /**
+   * Create User method to map token with user details as one object
+   * @param result
+   */
   createUser(result: any): any {
     const user = new User();
-    user.type = result.user[0].type;
-    user.name = result.user[0].name;
-    user.phone = result.user[0].phone;
-    user.category = result.user[0].category;
-    user.matNo = result.user[0].mat_no;
-    user.id = result.user[0].id;
-    user.email = result.user[0].email;
+    user.type = result.user.type;
+    user.name = result.user.name;
+    user.phone = result.user.phone;
+    user.category = result.user.category;
+    user.matNo = result.user.mat_no;
+    user.id = result.user.id;
+    user.email = result.user.email;
     user.token =  result.token;
     return user;
   }
 
+  /**
+   * Login service method
+   * @param loginCredentials
+   */
   login(loginCredentials): Observable<any> {
       return this.http.post(`${this.apiUrl}/user/signin`, JSON.stringify(loginCredentials),
         HttpOptions.getHttpOptions()).pipe(
             map( (result: any) => {
+              console.log(result);
               if (result.token && result.user) {
                 const user = this.createUser(result);
                 localStorage.setItem('currentUser', JSON.stringify(user));
@@ -56,6 +68,9 @@ export class AuthenticationService {
       );
   }
 
+  /**
+   * Checks if user is looged in
+   */
   isLoggedIn(): boolean {
     if ( this.currentUserValue != null) {
       return true;
@@ -63,8 +78,25 @@ export class AuthenticationService {
     return false;
   }
 
+  /**
+   * Logout method
+   */
   logout(): void {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+  }
+
+  /**
+   * Register auth service method
+   * @param regDetails
+   */
+  register(regDetails): any {
+    return this.http.post<any>(
+        `${this.apiUrl}/user`, JSON.stringify(regDetails),
+        HttpOptions.getHttpOptions()).pipe(
+        map( (result: any) => {
+          return result;
+        })
+    );
   }
 }
