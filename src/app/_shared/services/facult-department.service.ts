@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FacultDepartmentService {
 
-  facultyDepartmentUrl = '../assets/data/faculties_and_departments';
+  facultyDepartmentUrl = '../../../assets/data/faculties_and_departments.json';
   constructor(private http: HttpClient) { }
 
   getFaculties(): any {

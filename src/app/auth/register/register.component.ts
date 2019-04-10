@@ -12,7 +12,7 @@ import {AuthenticationService} from '../../_shared/services/authentication.servi
 })
 export class RegisterComponent implements OnInit {
 
-  // registeration form group
+  // registration form group
   registerFormGroup: FormGroup;
 
   fullNameFormControl = new FormControl( '', [
@@ -50,8 +50,8 @@ export class RegisterComponent implements OnInit {
   ]);
 
   matcher = new CustomErrorStateMatcher();
-  faculties: any = [];
-  departments: any = [];
+  faculties = [];
+  departments = [];
 
   loading = false;
   hide = true;
@@ -94,14 +94,21 @@ export class RegisterComponent implements OnInit {
     this.facultyDepartmentService.getDepartments()
         .subscribe(
             (data: any) => {
-              this.faculties = data.faculties;
-              this.departments = this.faculties.find(
-                  result => result.faculty === faculty).departments;
+              /*this.departments = data.faculties.find(
+                  result => result.faculty === faculty).departments; */
+              for (const value of data.faculties) {
+                  if ( value.faculty === faculty.faculty) {
+                      console.log(value.departments);
+                      this.departments = value.departments;
+                      break;
+                  }
+              }
             }
         );
   }
 
-  onFacultySelection(event, faculty) {
+  onFacultySelection(event) {
+    console.log(this.facultyFormControl.value);
     this.loadDepartments(this.facultyFormControl.value);
     // TODO: do validation for department
     this.departmentFormControl.enable();
@@ -111,7 +118,18 @@ export class RegisterComponent implements OnInit {
   register() {
     this.loading = true;
     this.buttonText = 'Registration in progress...';
-    this.auth.register(this.registerFormGroup.value)
+    const registerFormData = {
+        name: this.fullNameFormControl.value,
+        email: this.emailFormControl.value,
+        mat_no: this.matricNoFormControl.value,
+        faculty: this.facultyFormControl.value.faculty,
+        dept: this.departmentFormControl.value,
+        prog: this.programmeFormControl.value,
+        phone: this.phoneFormControl.value,
+        password: this.passwordFormControl.value
+    };
+    console.log(registerFormData); // TODO: remove this line
+    this.auth.register(registerFormData)
         .subcribe(
             (result) => {
               this.subscribeResult(true, null);
@@ -140,6 +158,9 @@ export class RegisterComponent implements OnInit {
     this.initializeFormGroup();
   }
 
+    /**
+     * Initialize form group
+     */
   initializeFormGroup(): void {
     this.registerFormGroup.setValue({
       name: '',
