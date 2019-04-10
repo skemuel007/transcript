@@ -98,7 +98,6 @@ export class RegisterComponent implements OnInit {
                   result => result.faculty === faculty).departments; */
               for (const value of data.faculties) {
                   if ( value.faculty === faculty.faculty) {
-                      console.log(value.departments);
                       this.departments = value.departments;
                       break;
                   }
@@ -108,9 +107,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onFacultySelection(event) {
-    console.log(this.facultyFormControl.value);
     this.loadDepartments(this.facultyFormControl.value);
-    // TODO: do validation for department
     this.departmentFormControl.enable();
     this.departmentFormControl.setValidators(Validators.required);
   }
@@ -128,9 +125,9 @@ export class RegisterComponent implements OnInit {
         phone: this.phoneFormControl.value,
         password: this.passwordFormControl.value
     };
-    console.log(registerFormData); // TODO: remove this line
+
     this.auth.register(registerFormData)
-        .subcribe(
+        .subscribe(
             (result) => {
               this.subscribeResult(true, null);
             },
@@ -144,12 +141,12 @@ export class RegisterComponent implements OnInit {
   subscribeResult(success: boolean, errorMessage: any): void {
     if (success) {
       this.toastr.success('Registration successful', 'Registration success');
+      this.clearForm();
     } else {
       this.toastr.error('Error: ' + errorMessage.message, 'Registration error');
     }
     this.loading = false;
     this.buttonText = 'Register';
-    this.clearForm();
 
   }
 
