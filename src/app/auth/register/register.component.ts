@@ -4,6 +4,7 @@ import {CustomErrorStateMatcher} from '../../_shared/utils/custom-error-state-ma
 import {FacultDepartmentService} from '../../_shared/services/facult-department.service';
 import {ToastrService} from 'ngx-toastr';
 import {AuthenticationService} from '../../_shared/services/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -60,7 +61,8 @@ export class RegisterComponent implements OnInit {
   constructor(private facultyDepartmentService: FacultDepartmentService,
               private toastr: ToastrService,
               private formBuilder: FormBuilder,
-              private auth: AuthenticationService) { }
+              private auth: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -144,6 +146,7 @@ export class RegisterComponent implements OnInit {
     if (success) {
       this.toastr.success('Registration successful', 'Registration success');
       this.clearForm();
+      this.router.navigate(['auth/login']);
     } else {
       this.toastr.error('An error occured while creating your account, please try again later', 'Registration error');
     }

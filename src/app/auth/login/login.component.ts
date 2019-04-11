@@ -76,6 +76,7 @@ export class LoginComponent implements OnInit {
   subscribeResult(success: boolean, errorMessage: any): void {
       if (success) {
           this.toastr.success('Login successful', 'Login success');
+          this.router.navigate(['app/dashboard']);
       } else {
           this.toastr.error('Error: ' + errorMessage.message, 'Login error');
       }
