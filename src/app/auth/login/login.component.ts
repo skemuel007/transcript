@@ -62,7 +62,6 @@ export class LoginComponent implements OnInit {
           .subscribe(
               (result) => {
                   this.subscribeResult(true, null);
-                  this.router.navigate([this.returnUrl]);
 
               },
               (error) => {
@@ -75,7 +74,7 @@ export class LoginComponent implements OnInit {
   subscribeResult(success: boolean, errorMessage: any): void {
       if (success) {
           this.toastr.success('Login successful', 'Login success');
-          this.router.navigate(['app/dashboard']);
+          this.router.navigate([this.returnUrl]);
       } else {
           this.toastr.error('Error: ' + errorMessage.message, 'Login error');
       }
