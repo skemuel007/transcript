@@ -8,9 +8,12 @@ import { NavbarComponent } from './_shared/navbar/navbar.component';
 import { SidebarComponent } from './_shared/sidebar/sidebar.component';
 import { FooterComponent } from './_shared/footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PaymentHistoryComponent } from './payment-history/payment-history.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ApplyComponent } from './apply/apply.component';
 
 @NgModule({
-    declarations: [ApplicationComponent, NavbarComponent, SidebarComponent, FooterComponent, DashboardComponent],
+    declarations: [ApplicationComponent, NavbarComponent, SidebarComponent, FooterComponent, DashboardComponent, PaymentHistoryComponent, ProfileComponent, ApplyComponent],
     imports: [
         ApplicationRoutingModule,
         CommonModule,
