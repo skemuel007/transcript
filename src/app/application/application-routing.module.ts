@@ -5,11 +5,14 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {ApplyComponent} from './apply/apply.component';
 import {PaymentHistoryComponent} from './payment-history/payment-history.component';
 import {ProfileComponent} from './profile/profile.component';
+import {AuthGuard} from '../_shared/guards/auth.guard';
 
 const routes: Routes = [
     {
         path: '',
         component: ApplicationComponent,
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
             {
                 path: 'dashboard', component: DashboardComponent, data: {title : 'Dashboard'}
