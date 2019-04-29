@@ -52,18 +52,17 @@ export class LoginComponent implements OnInit {
           password: this.passwordFormControl,
         });
     console.log(localStorage.getItem('currentUser'));
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/app/dashboard';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/application/dashboard';
   }
 
   login(): void {
-      // TODO: remove console.log
-      console.log(this.loginFormGroup.value);
       this.loading = true;
       this.buttonText = 'Signing in...';
       this.auth.login(this.loginFormGroup.value)
           .subscribe(
               (result) => {
                   this.subscribeResult(true, null);
+                  this.router.navigate([this.returnUrl]);
 
               },
               (error) => {
