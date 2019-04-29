@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import {AppMaterialModule} from './_shared/modules/app-material.module';
 import {LoadingBarModule} from '@ngx-loading-bar/core';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {LoadingBarModule} from '@ngx-loading-bar/core';
     BrowserModule,
     ToastrModule.forRoot(),
     AppMaterialModule,
+    HttpClientModule,
     AppRoutingModule,
     LoadingBarModule,
     NgbModule.forRoot(),

@@ -15,7 +15,7 @@ const routes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
             {
-                path: 'dashboard', component: DashboardComponent, data: {title : 'Dashboard'}
+                path: 'dashboard', component: DashboardComponent
             },
             {
                 path: 'apply', component: ApplyComponent, data: { title: 'Apply for Transcript'}

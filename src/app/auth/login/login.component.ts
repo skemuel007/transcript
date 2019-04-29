@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ]);
 
   // create a returnUrl
-  returnUrl: string;
+  returnUrl = '';
 
   // button text
   buttonText = 'Sign in';
@@ -51,8 +51,7 @@ export class LoginComponent implements OnInit {
           email: this.emailFormControl,
           password: this.passwordFormControl,
         });
-    console.log(localStorage.getItem('currentUser'));
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/application/dashboard';
+    this.returnUrl =  '/application/dashboard';
   }
 
   login(): void {
@@ -62,7 +61,9 @@ export class LoginComponent implements OnInit {
           .subscribe(
               (result) => {
                   this.subscribeResult(true, null);
-
+                  // TODO: remove when done
+                  console.log(this.returnUrl);
+                  this.router.navigateByUrl(this.returnUrl);
               },
               (error) => {
                   this.subscribeResult(false, error);
@@ -74,13 +75,15 @@ export class LoginComponent implements OnInit {
   subscribeResult(success: boolean, errorMessage: any): void {
       if (success) {
           this.toastr.success('Login successful', 'Login success');
-          this.router.navigate([this.returnUrl]);
+          this.loading = false;
+          this.buttonText = 'Sign in';
+          this.clearForm();
       } else {
           this.toastr.error('Error: ' + errorMessage.message, 'Login error');
+          this.loading = false;
+          this.buttonText = 'Sign in';
+          this.clearForm();
       }
-      this.loading = false;
-      this.buttonText = 'Sign in';
-      this.clearForm();
 
   }
 
@@ -90,10 +93,8 @@ export class LoginComponent implements OnInit {
   }
 
   initializeFormGroup(): void {
-      this.loginFormGroup.setValue({
-         email: '',
-         password: ''
-      });
+      this.loginFormGroup.controls.email.setValue('');
+      this.loginFormGroup.controls.password.setValue('');
   }
 
 }

@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
         this.loader.start();
       } else if ( event instanceof RouteConfigLoadEnd ) {
         this.loader.complete();
+        this.loader.stop();
       }
     });
   }

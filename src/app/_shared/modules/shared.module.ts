@@ -13,7 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         HttpClientModule,
         ToastrModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     exports: [
         CommonModule,

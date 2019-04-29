@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ApplicationModule} from './application/application.module';
 
 const routes: Routes = [
   {
@@ -15,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'application',
-    loadChildren: () => ApplicationModule
+    loadChildren: './application/application.module#ApplicationModule'
   },
   {
     path: '',
@@ -28,4 +27,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {}
