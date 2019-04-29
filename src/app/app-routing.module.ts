@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthModule} from './auth/auth.module';
-import {PagesModule} from './pages/pages.module';
+import {ApplicationModule} from './application/application.module';
 
 const routes: Routes = [
   {
@@ -13,6 +12,10 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: 'application',
+    loadChildren: () => ApplicationModule
   },
   {
     path: '',
