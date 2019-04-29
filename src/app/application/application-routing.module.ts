@@ -2,6 +2,9 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ApplicationComponent} from './application.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {ApplyComponent} from './apply/apply.component';
+import {PaymentHistoryComponent} from './payment-history/payment-history.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
     {
@@ -10,6 +13,15 @@ const routes: Routes = [
         children: [
             {
                 path: 'dashboard', component: DashboardComponent, data: {title : 'Dashboard'}
+            },
+            {
+                path: 'apply', component: ApplyComponent, data: { title: 'Apply for Transcript'}
+            },
+            {
+                path: 'payment-history', component: PaymentHistoryComponent, data: { title: 'Payment History'}
+            },
+            {
+                path: 'profile', component: ProfileComponent, data: { title : 'Profile'}
             },
             {
                 path: '', redirectTo: 'dashboard', pathMatch: 'full'
