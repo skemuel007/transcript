@@ -12,9 +12,7 @@ export class AppComponent implements OnInit {
 
   // mat progress bar properties
   color = 'primary';
-  mode = 'indeterminate';
-  bufferValue = 75;
-  value = 50;
+  mode = 'query';
 
   constructor(private router: Router) {}
 

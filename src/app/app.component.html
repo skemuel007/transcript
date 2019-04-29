@@ -1,7 +1,6 @@
-<mat-progress-bar
-        class="full-width"
-    [color]="color"
-    [mode]="mode"
-    [value]="value"
-    [bufferValue]="bufferValue" *ngIf="loadingRouteConfig"></mat-progress-bar>
+<mat-progress-bar class="full-width"
+                  [color]="color"
+                  [mode]="mode"
+                  *ngIf="loadingRouteConfig">
+</mat-progress-bar>
 <router-outlet></router-outlet>

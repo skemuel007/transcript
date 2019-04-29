@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomErrorStateMatcher} from '../../_shared/utils/custom-error-state-matcher';
-import {FacultDepartmentService} from '../../_shared/services/facult-department.service';
+import {FacultyDepartmentService} from '../../_shared/services/faculty-department.service';
 import {ToastrService} from 'ngx-toastr';
 import {AuthenticationService} from '../../_shared/services/authentication.service';
 import {Router} from '@angular/router';
@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
   hide = true;
   buttonText = 'Register';
 
-  constructor(private facultyDepartmentService: FacultDepartmentService,
+  constructor(private facultyDepartmentService: FacultyDepartmentService,
               private toastr: ToastrService,
               private formBuilder: FormBuilder,
               private auth: AuthenticationService,
