@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RouteConfigLoadEnd, RouteConfigLoadStart, Router} from '@angular/router';
+import {LoadingBarService} from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +9,16 @@ import {RouteConfigLoadEnd, RouteConfigLoadStart, Router} from '@angular/router'
 })
 export class AppComponent implements OnInit {
 
-  loadingRouteConfig: boolean;
-
-  // mat progress bar properties
-  color = 'primary';
-  mode = 'query';
-
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private loader: LoadingBarService) {}
 
   ngOnInit(): void {
     this.router.events.subscribe( event => {
       if ( event instanceof RouteConfigLoadStart) {
          // set loading to true
-        this.loadingRouteConfig = true;
+        this.loader.start();
       } else if ( event instanceof RouteConfigLoadEnd ) {
-        this.loadingRouteConfig = false;
+        this.loader.complete();
       }
     });
   }

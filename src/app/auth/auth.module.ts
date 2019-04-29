@@ -11,6 +11,9 @@ import {AppMaterialModule} from '../_shared/modules/app-material.module';
 import {CommonModule} from '@angular/common';
 import {AuthenticationService} from '../_shared/services/authentication.service';
 import {FacultyDepartmentService} from '../_shared/services/faculty-department.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {JwtInterceptor} from '../_shared/helpers/jwt.interceptor';
+import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,16 @@ import {FacultyDepartmentService} from '../_shared/services/faculty-department.s
       SharedModule,
       AppMaterialModule,
   ],
-  providers: [AuthenticationService, FacultyDepartmentService],
+  providers: [
+      AuthenticationService,
+      FacultyDepartmentService,
+      {
+          provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
+      },
+      {
+          provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true
+      }
+  ],
   entryComponents: [],
 })
 
