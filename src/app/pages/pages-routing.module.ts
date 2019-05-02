@@ -6,6 +6,7 @@ import {AboutComponent} from './about/about.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
 import {DeliveryComponent} from './delivery/delivery.component';
 import {ProceduresComponent} from './procedures/procedures.component';
+import {FaqComponent} from './faq/faq.component';
 
 const routes: Routes = [
     {
@@ -37,6 +38,11 @@ const routes: Routes = [
                 path: 'procedures',
                 component: ProceduresComponent,
                 data: {title : 'Payment Procedures'}
+            },
+            {
+                path: 'faq',
+                component: FaqComponent,
+                data: {title: 'Frequently Asked Questions'}
             },
             {
                 path: '',

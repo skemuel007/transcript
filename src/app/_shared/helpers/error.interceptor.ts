@@ -18,9 +18,8 @@ export class ErrorInterceptor implements HttpInterceptor {
                 err => {
                     if ([401, 403, 408, 500].indexOf(err.status) !== -1) {
                         if ( err.status === 408) {
-                            this.toastr.error('Request timeout due to poor connnection, logging out');
+                            this.toastr.error('Request timeout due to poor connection, logging out');
                         }
-
                         this.authenticationService.logout();
                         location.reload(true);
                     }
