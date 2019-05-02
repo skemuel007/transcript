@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
                   this.subscribeResult(true, null);
                   // TODO: remove when done
                   console.log(this.returnUrl);
-                  this.router.navigateByUrl(this.returnUrl);
+                  this.router.navigate([this.returnUrl]);
               },
               (error) => {
                   this.subscribeResult(false, error);
