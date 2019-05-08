@@ -1,4 +1,13 @@
 .navbar ul a:hover {
   opacity: 0.8;
 }
+swiper  {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.swiper-slide{
+  width: 100%
+}
 

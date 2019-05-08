@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-
+  public imageUrl;
   constructor() { }
-
   ngOnInit() {
+    this.imageUrl = [
+        '../../../assets/img/DSC_1080 - Copy.jpg',
+        '../../../assets/img/DSC_0111.jpg',
+        '../../../assets/img/Student.png'
+    ];
   }
+
 
 }
