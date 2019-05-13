@@ -14,6 +14,7 @@ import {FacultyDepartmentService} from '../_shared/services/faculty-department.s
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from '../_shared/helpers/jwt.interceptor';
 import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
+import { NavBarComponent } from './_shared/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
       ForgotPasswordComponent,
       ResetPasswordComponent,
       FooterComponent,
+      NavBarComponent,
   ],
   imports: [
       CommonModule,

@@ -1,17 +1,21 @@
-<!--<div class="simple-slider">
-  <div class="swiper-container">
-    &lt;!&ndash;<div class="swiper-wrapper">
-      &lt;!&ndash;<div class="swiper-slide" style="background-image: url('../../../assets/img/DSC_1080 - Copy.jpg');background-size: cover;background-position: top;"></div>
-      <div class="swiper-slide" style="background-image: url('../../../assets/img/DSC_0111.jpg');background-position: center;background-size: cover;"></div>
-      <div class="swiper-slide" style="background-image: url('../../../assets/img/Student.png');background-positi on: center;background-size: contain;"></div>&ndash;&gt;
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="simple-slider">
+      <img src="../../../assets/img/DSC_1080 - Copy.jpg" height="500px"  width="100%" alt="" class="swiper-slide"/>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="simple-slider">
+      <img src="../../../assets/img/DSC_0111.jpg" height="500px" width="100%" alt="" class="swiper-slider"/>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="simple-slider">
+      <img src="../../../assets/img/Student.png" height="500px" width="100%" alt="" class="swiper-slider"/>
+    </div>
+  </ng-template>
+</ngb-carousel>
 
-    </div>&ndash;&gt;
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</div>-->
-<angular-image-slider  [images]="imageUrl"></angular-image-slider>
 <div class="article-dual-column" style="margin-top: 20px;color: #000000;">
   <div class="container">
     <div class="row">
@@ -19,18 +23,18 @@
         <div class="toc" style="font-family: 'Open Sans', sans-serif;">
           <p style="font-size: 13px;">Policies and options</p>
           <ul>
-            <li><a routerLink="/pages/procedures">Application Procedures</a> </li>
-            <li><a routerLink="/pages/delivery">Delivery Options</a> </li>
+            <li><a routerLink="../../pages/procedures">Application Procedures</a> </li>
+            <li><a routerLink="../../pages/delivery">Delivery Options</a> </li>
           </ul>
         </div>
         <div class="toc" style="font-family: 'Open Sans', sans-serif;">
           <hr>
           <p style="font-size: 13px;">Contents</p>
           <ul>
-            <li><a routerLink="/pages/about">About Us</a> </li>
-            <li><a routerLink="#">Apply Now</a></li>
-            <li><a routerLink="pages/faq">FAQ</a></li>
-            <li><a routerLink="pages/contact-us">Contact Us</a> </li>
+            <li><a routerLink="../../pages/about">About Us</a> </li>
+            <li><a routerLink="../../auth/register">Apply Now</a></li>
+            <li><a routerLink="../../pages/faq">FAQ</a></li>
+            <li><a routerLink="../../pages/contact-us">Contact Us</a> </li>
           </ul>
         </div>
         <div class="toc" style="font-family: 'Open Sans', sans-serif;">
@@ -55,7 +59,7 @@
           <p>Follow the&nbsp;<a href="#">step-by-step guide lines for the Transcript process</a>&nbsp;here.</p>
           <p>For further assistance:<br><i class="fa fa-caret-right"></i>&nbsp;Send an e-mail to&nbsp;<i class="fa fa-envelope"></i>&nbsp;transcript@bowenuniversity.edu.ng<br><i class="fa fa-caret-right"></i>&nbsp;Help Desk&nbsp;
             <i
-                    class="fa fa-phone"></i>&nbsp;+234 (0)&nbsp;<br><i class="fa fa-caret-right"></i>&nbsp;<a href="#">Visit our FAQ section</a></p>
+                    class="fa fa-phone"></i>&nbsp;+234 (0)&nbsp;<br><i class="fa fa-caret-right"></i>&nbsp;<a routerLink="pages/faq">Visit our FAQ section</a></p>
         </div>
       </div>
     </div>

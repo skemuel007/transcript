@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #184e8e;">
+  <div class="container-fluid"><a class="navbar-brand" href="#" style="color: #ffffff;"><img style="width: 60px;height: 50px;" src="../../../../assets/img/new bowen logo.png">&nbsp;<strong>Bowen Transcript</strong></a>
+    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" (click)="toggleNavBar()">
+      <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div
+            class="collapse navbar-collapse show" id="navcol-1" [ngClass]="{'show': changeToggle}">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item" role="presentation" style="margin-right: 10px;"><a class="nav-link active" routerLink="../../pages/home" style="font-size: 15px;font-family: 'Open Sans', sans-serif;color: #ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+
+        <li class="nav-item" role="presentation" style="margin-right: 10px;"><a class="nav-link" routerLink="../../pages/about" style="font-size: 15px;font-family: 'Open Sans', sans-serif;color: #ffffff;"><i class="fa fa-info-circle"></i>&nbsp;About</a></li>
+
+        <li class="nav-item" role="presentation"><a class="nav-link" routerLink="../../pages/contact-us" style="margin-right: 30px;font-size: 15px;font-family: 'Open Sans', sans-serif;color: #ffffff;"><i class="fa fa-envelope-open"></i>&nbsp;Contact Us</a></li>
+
+        <li class="nav-item" role="presentation"><a class="nav-link border rounded" routerLink="/auth/login" style="font-size: 15px;font-family: 'Open Sans', sans-serif;color: #ffffff;"><i class="fa fa-sign-in"></i>&nbsp;Sign In</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

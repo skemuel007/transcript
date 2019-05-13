@@ -4,7 +4,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .login-dark {
-  height: 1000px;
+  height: 650px;
   /*background: #475d62 url(../../assets/img/star-sky.jpg);*/
   background-size: cover;
   position: relative;
@@ -178,4 +178,11 @@ radio-group-label {
 
 .form-color {
   color: #343a40;
+}
+
+.simple-slider .swiper-slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
 }
