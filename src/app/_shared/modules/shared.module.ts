@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {ToastrModule} from 'ngx-toastr';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RavepaymentModule} from 'angular4-ravepayment';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         HttpClientModule,
         ToastrModule,
         FormsModule,
+        RavepaymentModule,
         ReactiveFormsModule
     ]
 })
