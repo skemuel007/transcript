@@ -40,7 +40,13 @@
             "scripts": [
               "node_modules/swiper/dist/js/swiper.js",
               {
-                "input" : "./node_modules/jquery/dist/jquery.min.js",
+                "input" : "./node_modules/jquery/dist/jquery.min.js"
+              },
+              {
+                "input" : "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              },
+              {
+                "input" : "./node_modules/tether/dist/js/tether.min.js"
               }
             ],
             "es5BrowserSupport": true
