@@ -18,6 +18,15 @@ table {
   width: 100%;
 }
 
+.theme-background, .router-active {
+  background-color: #184e8e !important;
+}
+
+.active {
+  background-color: #184e8e !important;
+  color: #fff !important;
+}
+
 .login-dark form {
   max-width: 320px;
   width: 90%;
