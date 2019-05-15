@@ -9,7 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {AppMaterialModule} from './_shared/modules/app-material.module';
 import {LoadingBarModule} from '@ngx-loading-bar/core';
 import {HttpClientModule} from '@angular/common/http';
-import {RavepaymentModule} from 'angular4-ravepayment';
+import {AngularRaveModule} from 'angular-rave';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import {RavepaymentModule} from 'angular4-ravepayment';
     HttpClientModule,
     AppRoutingModule,
     LoadingBarModule,
+    AngularRaveModule,
     NgbModule.forRoot(),
-    RavepaymentModule,
     BrowserAnimationsModule,
   ],
   providers: [],
