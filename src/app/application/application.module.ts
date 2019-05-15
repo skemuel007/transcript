@@ -14,6 +14,7 @@ import {AuthenticationService} from '../_shared/services/authentication.service'
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from '../_shared/helpers/jwt.interceptor';
 import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
+import {PaymentService} from '../_shared/services/payment.service';
 
 @NgModule({
     declarations: [ApplicationComponent, NavbarComponent, SidebarComponent,
@@ -25,6 +26,7 @@ import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
     ],
     providers: [
         AuthenticationService,
+        PaymentService,
         {
             provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
         },
