@@ -15,10 +15,11 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from '../_shared/helpers/jwt.interceptor';
 import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
 import {PaymentService} from '../_shared/services/payment.service';
+import { DialogPaymentSummaryComponent } from './dialog-payment-summary/dialog-payment-summary.component';
 
 @NgModule({
     declarations: [ApplicationComponent, NavbarComponent, SidebarComponent,
-        FooterComponent, DashboardComponent, PaymentHistoryComponent, ProfileComponent, ApplyComponent],
+        FooterComponent, DashboardComponent, PaymentHistoryComponent, ProfileComponent, ApplyComponent, DialogPaymentSummaryComponent],
     imports: [
         ApplicationRoutingModule,
         SharedModule,
