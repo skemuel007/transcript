@@ -15,16 +15,16 @@ const routes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
             {
-                path: 'dashboard', component: DashboardComponent
+                path: 'dashboard', component: DashboardComponent, data: { title: 'Bowen Transcript - Dashboard'}
             },
             {
-                path: 'apply', component: ApplyComponent, data: { title: 'Apply for Transcript'}
+                path: 'apply', component: ApplyComponent, data: { title: 'Bowen Transcript - Apply for Transcript'}
             },
             {
-                path: 'payment-history', component: PaymentHistoryComponent, data: { title: 'Payment History'}
+                path: 'payment-history', component: PaymentHistoryComponent, data: { title: 'Bowen Transcript - Payment History'}
             },
             {
-                path: 'profile', component: ProfileComponent, data: { title : 'Profile'}
+                path: 'profile', component: ProfileComponent, data: { title : 'Bowen Transcript - User Profile'}
             },
             {
                 path: '', redirectTo: 'dashboard', pathMatch: 'full'
