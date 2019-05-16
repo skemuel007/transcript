@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 import {HttpOptions} from '../utils/http_options';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,41 @@ export class PaymentService {
   private apiUrl = environment.APIEndpoint;
   private  paymentUri = `${this.apiUrl}/user/payment`;
 
+  form: FormGroup = new FormGroup({
+    id: new FormControl(''),
+    name: new FormControl(''),
+    mat_no: new FormControl(''),
+    apptype: new FormControl(''),
+    amount: new FormControl(''),
+    status: new FormControl(''),
+    paymenttype: new FormControl(''),
+    txRef: new FormControl(''),
+    dest: new FormControl(''),
+    orderStatus: new FormControl(''),
+    date: new FormControl('')
+  })
+
   constructor(private http: HttpClient) { }
+
+  initializeFormGroup() {
+    this.form.setValue({
+      id: '',
+      name: '',
+      mat_no: '',
+      apptype: '',
+      amount: '',
+      status: '',
+      paymenttype: '',
+      txRef: '',
+      dest: '',
+      orderStatus: '',
+      date: ''
+    });
+  }
+
+  populateForm(paymentData) {
+    this.form.setValue(paymentData);
+  }
 
   makePayment(payData): Observable<any> {
 
