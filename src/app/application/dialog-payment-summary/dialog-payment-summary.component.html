@@ -1,3 +1,44 @@
-<p>
-  dialog-payment-summary works!
-</p>
+<div style="background-image: url('../../../assets/img/logo.png'); background-position: center center;"></div>
+<div class="row">
+  <div class="col-sm">
+
+    <!-- header section of the print -->
+    <div class="row justify-content-md-center">
+      <div class="col-md-5 text-right">
+        <img src="../../../assets/img/logo.png" width="30%">
+      </div>
+      <div class="col-md-7  text-left">
+        <h4>Bowen University, Iwo <br /><small class="text-muted">OF THE NIGERIAN BAPTIST CONVENTION <br />
+          IWO, OSUN STATE</small></h4>
+      </div>
+    </div>
+    <div class="row justify-content-md-center text-center">
+      <div class="col-md-auto">
+
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md text-center">
+        <h5 class="text-center">PAYMENT RECEIPT</h5>
+        <hr />
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm-5">
+        <p><span class="font-weight-bold">Name:</span> {{paymentService.form.get('name').value}}</p>
+        <p><span class="font-weight-bold">Matric No.:</span> {{paymentService.form.get('mat_no').value}}</p>
+        <p><span class="font-weight-bold">Application Type:</span> {{paymentService.form.get('apptype').value}}</p>
+        <p><span class="font-weight-bold">Payment Status:</span> {{paymentService.form.get('status').value}}</p>
+        <p><span class="font-weight-bold">Amount:</span> N{{paymentService.form.get('amount').value}}</p>
+        <p><span class="font-weight-bold">Transaction Id:</span> {{paymentService.form.get('txRef').value}}</p>
+        <p><span class="font-weight-bold">Date:</span> {{paymentService.form.get('date').value}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button mat-raised-button color="primary" (click)="print()"><mat-icon>print</mat-icon></button>&nbsp;
+        <button mat-raised-button color="accent" (click)="close()"><mat-icon>close</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>

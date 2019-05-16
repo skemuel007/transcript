@@ -6,6 +6,7 @@ import {AuthenticationService} from '../../_shared/services/authentication.servi
 import {PaymentService} from '../../_shared/services/payment.service';
 import {Title} from '@angular/platform-browser';
 import {filter, map, mergeMap} from 'rxjs/operators';
+import {DialogPaymentSummaryComponent} from '../dialog-payment-summary/dialog-payment-summary.component';
 
 @Component({
   selector: 'app-payment-history',
@@ -114,8 +115,12 @@ export class PaymentHistoryComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%';
-    // const dialogRef = this.dialog.open();
+    dialogConfig.width = '50%';
+    const dialogRef = this.dialog.open(DialogPaymentSummaryComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe( result => {
+      const data: boolean = result;
+    });
 
   }
 

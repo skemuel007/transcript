@@ -35,7 +35,7 @@ import { DialogPaymentSummaryComponent } from './dialog-payment-summary/dialog-p
             provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true
         }
     ],
-    entryComponents: []
+    entryComponents: [DialogPaymentSummaryComponent]
 })
 
 export class ApplicationModule {}
