@@ -1,4 +1,11 @@
 <div class="row">
+  <div class="col-md">
+    <div class="alert alert-info" role="alert">
+      <p>Welcome to the transcript payment history page. Please note, printing transaction receipt can be done by clicking the <button mat-button><mat-icon>print</mat-icon></button> button for any of the items in the table below.</p>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-sm-5 offset-7">
     <!-- search control -->
     <mat-form-field class="full-width" appearance="fill" >
@@ -11,13 +18,12 @@
     </mat-form-field>
   </div>
 </div>
-
 <!-- payment table -->
 <div class="row">
   <div class="col-sm">
     <div class="card mat-elevation-z6">
       <div class="card-header text-center">
-        <h5>Payment History/Transcrpt Application History</h5>
+        <h5>Payment History/Transcript Application History</h5>
       </div>
       <div class="card-body">
         <table mat-table [dataSource]="paymentData" matSort>
