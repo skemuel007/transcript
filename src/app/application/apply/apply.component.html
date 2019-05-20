@@ -1,12 +1,12 @@
 <div class="row ">
-  <div class="col-sm-9 mb-3">
+  <div class="col-sm-8 mb-3">
 
    <!-- user data summary -->
     <div class="row">
       <div class="col-sm-12">
         <div class="card mat-elevation-z6">
           <div class="card-header">
-            User Data Summary
+            Personal Details
           </div>
           <div class="card-body">
 
@@ -14,21 +14,122 @@
         </div>
       </div>
     </div>
+    <div class="row mt-3">
+      <div class="col-sm-12">
+        <div class="card mat-elevation-z6">
+          <div class="card-header">
+            Transcript Order Details
+          </div>
+          <div class="card-body">
+            <form [formGroup]="applyFormGroup">
+              <div class="row">
+                <div [class]="localeWidth">
+                  <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Choose Locale (International/Local)</mat-label>
+                    <mat-select [formControl]="localeFormControl" [errorStateMatcher]="matcher" (selectionChange)="changeRegion()">
+                      <mat-option *ngFor="let region of regions" [value]="region">{{region}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="localeFormControl.hasError('required')">Please select your Region</mat-error>
+                  </mat-form-field>
+                </div>
+                <div [class]="otherWidth">
+                  <mat-form-field class="full-width" appearance="fill" *ngIf="outsideNigeria">
+                    <mat-label>Region outside Nigeria</mat-label>
+                    <mat-select [formControl]="overSeasRegionFormControl" [errorStateMatcher]="matcher" (selectionChange)="calculateOutside()">
+                      <mat-option *ngFor="let overSeas of internationalRegion" [value]="overSeas">{{overSeas}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="overSeasRegionFormControl.hasError('required')">
+                      Region outside Nigeria is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="full-width" appearance="fill" *ngIf="withinNigeria" >
+                    <mat-label>Within Nigeria</mat-label>
+                    <mat-select [formControl]="localRegionFormControl" [errorStateMatcher]="matcher" (selectionChange)="calculateWithin()">
+                      <mat-option *ngFor="let local of localRegion" [value]="local">{{local}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="localRegionFormControl.hasError('required')">
+                      Within Nigeria is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput [formControl]="addressFormControl" [errorStateMatcher]="matcher" class="form-color"></textarea>
+                    <mat-error *ngIf="addressFormControl.hasError('required')">
+                      Address is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <button mat-raised-button color="primary" [disabled]="applyFormGroup.invalid"
+                          angular-rave
+                          [PBFPubKey] = "'FLWPUBK-5fa26a52786d7d94c146cfc17392f212-X'"
+                          [customer_email] = "auth.currentUserValue.email"
+                          [customer_phone] = "auth.currentUserValue.phone"
+                          [amount]="paymentFee()"
+                          [custom_title]="'Payment for Bowen University Transcript'"
+                          [txref]="referenceKey"
+                          (callback)="makePayment($event)"
+                          (close)="cancelPayment()">
+
+                    <mat-progress-bar [color]="'primary'"
+                                      [mode]="'indeterminate'"
+                                      [value]="50"
+                                      [bufferValue]="75" class="full-width" *ngIf="loading">
+                    </mat-progress-bar>
+                    <mat-icon>payment</mat-icon> {{ buttonText }}
+                  </button>
+                  <!--[PBFPubKey] = "'FLWPUBK-4df0fb56aac31ae2665514a1051e174a-X'" -->
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Transcript Details -->
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-4">
     <!-- Fee Summary Section -->
     <div class="row">
       <div class="col-sm-12">
         <div class="card mat-elevation-z6">
           <div class="card-header">
-            <h6>Total Fee (₦)</h6>
+            <h6>Fee Summary (₦)</h6>
           </div>
           <div class="card-body">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="font-weight-bold">Transcript fee:</td>
+                  <td>{{ currencyFormat(transcriptFee) }}</td>
+                </tr>
+                <tr>
+                  <td class="font-weight-bold">Shipping fee:</td>
+                  <td>{{ currencyFormat(regionFee) }}</td>
+                </tr>
+                <tr>
+                  <td class="font-weight-bold">Surcharge:</td>
+                  <td>{{ currencyFormat(surcharge) }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="card-footer">
-            Total(₦) =
+            <table class="table table-borderless" class="text-white">
+              <tbody>
+                <tr>
+                  <td class="font-weight-bold">Total:</td>
+                  <td>{{ currencyFormat(totalFee) }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -38,12 +139,11 @@
     <div class="row mt-3">
       <div class="col-sm-12">
         <div class="alert alert-warning mat-elevation-z6" role="alert">
-          <h6 class="alert-heading">Instruction</h6>
+          <h6 class="alert-heading">Please note!</h6>
           <hr>
-          <p>example text is going to run
-            a bit longer so that you can see how spacing</p>
-          <p>example text is going to run
-            a bit longer so that you can see how spacing</p>
+          <p>If Details in the 'Personal Details' Section is incorrect, you can quickly update your details by clicking on the 'Username' menu -> profile to update.</p>
+          <p>For dual transcription application, application must be done twice.</p>
+          <p>The total fee section gives a summary of total fees to be paid.</p>
         </div>
       </div>
     </div>

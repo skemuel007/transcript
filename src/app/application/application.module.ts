@@ -16,6 +16,9 @@ import {JwtInterceptor} from '../_shared/helpers/jwt.interceptor';
 import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
 import {PaymentService} from '../_shared/services/payment.service';
 import { DialogPaymentSummaryComponent } from './dialog-payment-summary/dialog-payment-summary.component';
+import {FacultyDepartmentService} from '../_shared/services/faculty-department.service';
+import {UserService} from '../_shared/services/user.service';
+import {AngularRaveModule} from 'angular-rave';
 
 @NgModule({
     declarations: [ApplicationComponent, NavbarComponent, SidebarComponent,
@@ -23,11 +26,14 @@ import { DialogPaymentSummaryComponent } from './dialog-payment-summary/dialog-p
     imports: [
         ApplicationRoutingModule,
         SharedModule,
-        AppMaterialModule
+        AppMaterialModule,
+        AngularRaveModule,
     ],
     providers: [
         AuthenticationService,
         PaymentService,
+        FacultyDepartmentService,
+        UserService,
         {
             provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
         },

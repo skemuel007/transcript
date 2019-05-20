@@ -9,7 +9,6 @@ import { ToastrModule } from 'ngx-toastr';
 import {AppMaterialModule} from './_shared/modules/app-material.module';
 import {LoadingBarModule} from '@ngx-loading-bar/core';
 import {HttpClientModule} from '@angular/common/http';
-import {AngularRaveModule} from 'angular-rave';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import {AngularRaveModule} from 'angular-rave';
     HttpClientModule,
     AppRoutingModule,
     LoadingBarModule,
-    AngularRaveModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
   ],

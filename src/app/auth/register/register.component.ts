@@ -128,7 +128,6 @@ export class RegisterComponent implements OnInit {
         password: this.passwordFormControl.value
     };
 
-    console.log(registerFormData);
     this.auth.register(registerFormData)
         .subscribe(
             (result) => {

@@ -16,7 +16,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError(
                 err => {
-                    if ([401, 403, 408, 500].indexOf(err.status) !== -1) {
+                    if ([403, 408, 500].indexOf(err.status) !== -1) {
                         if ( err.status === 408) {
                             this.toastr.error('Request timeout due to poor connection, logging out');
                         }

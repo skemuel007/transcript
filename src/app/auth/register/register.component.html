@@ -33,17 +33,7 @@
       </div>
       <div class="row">
         <div class="col-sm">
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Matric No.</mat-label>
-            <input matInput [formControl]="matricNoFormControl" [errorStateMatcher]="matcher" class="form-color">
-            <mat-hint>Matric format (e.g, 15002)</mat-hint>
-            <mat-error *ngIf="matricNoFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
-              Matric no. must be number only and not more than 5 digits
-            </mat-error>
-            <mat-error *ngIf="matricNoFormControl.hasError('required')">
-              Matric no. is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
+
         </div>
       </div>
       <div class="row">

@@ -61,8 +61,6 @@ export class LoginComponent implements OnInit {
           .subscribe(
               (result) => {
                   this.subscribeResult(true, null);
-                  // TODO: remove when done
-                  console.log(this.returnUrl);
                   this.router.navigate([this.returnUrl]);
               },
               (error) => {
@@ -79,7 +77,12 @@ export class LoginComponent implements OnInit {
           this.buttonText = 'Sign in';
           this.clearForm();
       } else {
-          this.toastr.error('Error: ' + errorMessage.message, 'Login error');
+          if ( errorMessage === 'OK') {
+              this.toastr.error('Invalid Email or Password', 'Authentication Error');
+          } else {
+              this.toastr.error('Error: ' + errorMessage.message, 'Login Error');
+          }
+
           this.loading = false;
           this.buttonText = 'Sign in';
           this.clearForm();
