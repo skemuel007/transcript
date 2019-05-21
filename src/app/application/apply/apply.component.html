@@ -9,7 +9,17 @@
             Personal Details
           </div>
           <div class="card-body">
-
+            <div class="row">
+              <div class="col-sm-4">
+                <p><span class="font-weight-bold">Fullname: </span> {{ auth.currentUserValue.name }}</p>
+              </div>
+              <div class="col-sm-4">
+                <p><span class="font-weight-bold">Email: </span> {{ auth.currentUserValue.email }}</p>
+              </div>
+              <div class="col-sm-4">
+                <p><span class="font-weight-bold">Phone: </span> {{ auth.currentUserValue.phone }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -71,11 +81,16 @@
                           [PBFPubKey] = "'FLWPUBK-5fa26a52786d7d94c146cfc17392f212-X'"
                           [customer_email] = "auth.currentUserValue.email"
                           [customer_phone] = "auth.currentUserValue.phone"
+                          [customer_firstname] = "auth.currentUserValue.name.split(' ')[0]"
+                          [customer_lastname] = "auth.currentUserValue.name.split(' ')[1]"
                           [amount]="paymentFee()"
                           [custom_title]="'Payment for Bowen University Transcript'"
                           [txref]="referenceKey"
-                          (callback)="makePayment($event)"
-                          (close)="cancelPayment()">
+                          [currency] = "'NGN'"
+                          [redirect_url]="'/application/apply'"
+                          (callback)="paymentSuccess($event)"
+                          (close)="paymentFailure()"
+                          (init)="paymentInit($event)">
 
                     <mat-progress-bar [color]="'primary'"
                                       [mode]="'indeterminate'"

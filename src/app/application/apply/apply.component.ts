@@ -140,15 +140,52 @@ export class ApplyComponent implements OnInit {
     this.caculateTotal();
   }
 
-  makePayment(response: object): void {
-    console.log(response);
+  paymentSuccess(response: object): void {
+
+    this.loading = true;
+
+    if((response['data']['data']['responsemessage'] === 'successful') &&
+        (response['data']['data']['responsecode'] === '00')) {
+
+      const paymentVar = {
+        txIp: response['tx']['IP'],
+        txRef: response['tx']['txRef'],
+        raveRef: response['tx']['raveRef'],
+        amount: response['tx']['amount'],
+        appFee: response['tx']['appfee'],
+        paymenttype: response['tx']['paymentType'],
+        orderRef: response['tx']['orderRef'],
+        status: response['data']['data']['responsemessage'],
+        apptype: 'Transcript',
+        dest: this.addressFormControl.value,
+        nregion: this.overSeasRegionFormControl.value,
+        outside: this.localRegionFormControl.value
+      }
+
+      console.log(paymentVar);
+
+      this.paymentService.makePayment(paymentVar)
+          .subscribe(
+              (result: any) => {
+                this.toastr.success('Payment details saved successfully!', 'Payment Successful');
+                this.loading = false;
+              },
+              (error: any) => {
+
+                if ( error != null) {
+                  this.toastr.error('Error saving data', 'Failure saving');
+                }
+                this.loading = false;
+              }
+          );
+    }
   }
 
-  paymentInit() {
-
+  paymentInit(event): void {
+    this.loading = true;
   }
 
-  cancelPayment() {
+  paymentFailure() {
     console.log('close');
   }
 
