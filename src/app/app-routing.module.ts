@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: './application/application.module#ApplicationModule'
   },
   {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'pages'
