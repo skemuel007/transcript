@@ -87,7 +87,6 @@
                           [custom_title]="'Payment for Bowen University Transcript'"
                           [txref]="referenceKey"
                           [currency] = "'NGN'"
-                          [redirect_url]="'/application/apply'"
                           (callback)="paymentSuccess($event)"
                           (close)="paymentFailure()"
                           (init)="paymentInit($event)">
@@ -100,6 +99,7 @@
                     <mat-icon>payment</mat-icon> {{ buttonText }}
                   </button>
                   <!--[PBFPubKey] = "'FLWPUBK-4df0fb56aac31ae2665514a1051e174a-X'" -->
+                  <!--[redirect_url]="'/application/apply'" -->
                 </div>
               </div>
             </form>

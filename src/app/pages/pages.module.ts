@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PagesComponent } from './pages.component';
 import {PagesRoutingModule} from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -14,10 +13,11 @@ import { FooterComponent } from './_shared/footer/footer.component';
 import { SideBarComponent } from './_shared/side-bar/side-bar.component';
 
 @NgModule({
-    declarations: [PagesComponent, HomeComponent, AboutComponent, ContactUsComponent, ProceduresComponent, DeliveryComponent, FaqComponent, NavBarComponent, FooterComponent, SideBarComponent],
+    declarations: [PagesComponent, HomeComponent, AboutComponent, ContactUsComponent,
+        ProceduresComponent, DeliveryComponent, FaqComponent, NavBarComponent, FooterComponent, SideBarComponent],
     imports: [
         CommonModule,
-        PagesRoutingModule, NgbModule.forRoot()
+        PagesRoutingModule
     ],
     providers: [],
     entryComponents: []

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import {AppMaterialModule} from './_shared/modules/app-material.module';
@@ -21,7 +20,6 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     LoadingBarModule,
-    NgbModule.forRoot(),
     BrowserAnimationsModule,
   ],
   providers: [],

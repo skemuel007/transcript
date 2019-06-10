@@ -15,7 +15,7 @@ import { RaveOptions } from 'angular-rave';
 export class ApplyComponent implements OnInit {
 
   // add rave options
-  paymentOptions: RaveOptions = {
+  /*paymentOptions: RaveOptions = {
     PBFPubKey: 'FLWPUBK-79d3f77bd5514789bc344b4a82f1a2d9-X',
     customer_email: this.auth.currentUserValue.email,
     customer_firstname: this.auth.currentUserValue.name.split(' ')[0],
@@ -24,7 +24,7 @@ export class ApplyComponent implements OnInit {
     amount: this.paymentFee(),
     customer_phone: this.auth.currentUserValue.phone,
     txref: this.generateReference(),
-  };
+  }; */
 
   applyFormGroup: FormGroup;
 
@@ -122,7 +122,7 @@ export class ApplyComponent implements OnInit {
 
   constructor(private router: Router, private toastr: ToastrService,
               private formBuilder: FormBuilder,
-              private auth: AuthenticationService,
+              public auth: AuthenticationService,
               private paymentService: PaymentService) {
     this.referenceKey = this.generateReference();
   }
