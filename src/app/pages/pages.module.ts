@@ -11,13 +11,15 @@ import { FaqComponent } from './faq/faq.component';
 import { NavBarComponent } from './_shared/nav-bar/nav-bar.component';
 import { FooterComponent } from './_shared/footer/footer.component';
 import { SideBarComponent } from './_shared/side-bar/side-bar.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
     declarations: [PagesComponent, HomeComponent, AboutComponent, ContactUsComponent,
         ProceduresComponent, DeliveryComponent, FaqComponent, NavBarComponent, FooterComponent, SideBarComponent],
     imports: [
         CommonModule,
-        PagesRoutingModule
+        PagesRoutingModule,
+        MDBBootstrapModule.forRoot()
     ],
     providers: [],
     entryComponents: []

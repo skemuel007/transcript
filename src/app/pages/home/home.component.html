@@ -1,20 +1,15 @@
-<ngb-carousel>
-  <ng-template ngbSlide>
-    <div class="simple-slider">
-      <img src="../../../assets/img/DSC_1080 - Copy.jpg" height="500px"  width="100%" alt="" class="swiper-slide"/>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="simple-slider">
-      <img src="../../../assets/img/DSC_0111.jpg" height="500px" width="100%" alt="" class="swiper-slider"/>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="simple-slider">
-      <img src="../../../assets/img/Student.png" height="500px" width="100%" alt="" class="swiper-slider"/>
-    </div>
-  </ng-template>
-</ngb-carousel>
+
+<mdb-carousel [animation]="'slide'">
+  <mdb-carousel-item>
+    <img class="d-block w-100" style="height: 500px;" src="../../../assets/img/DSC_1080 - Copy.jpg" alt="First slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" style="height: 500px;"  src="../../../assets/img/DSC_0111.jpg" alt="Second slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" style="height: 500px;"  src="../../../assets/img/landscape.jpg" alt="Third slide">
+  </mdb-carousel-item>
+</mdb-carousel>
 
 <div class="article-dual-column" style="margin-top: 20px;color: #000000;">
   <div class="container">

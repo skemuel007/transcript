@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+/**
+ * Do not and I repeat do not import you feature modules in app module
+ * and also when addressing feature modules in your routes use this format,
+ * this can save you several hours buddy
+ *
+ *
+ */
 const routes: Routes = [
   {
     path: 'pages',
@@ -28,7 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 
