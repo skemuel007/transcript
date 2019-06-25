@@ -19,6 +19,7 @@ import { DialogPaymentSummaryComponent } from './dialog-payment-summary/dialog-p
 import {FacultyDepartmentService} from '../_shared/services/faculty-department.service';
 import {UserService} from '../_shared/services/user.service';
 import {AngularRaveModule} from 'angular-rave';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
     declarations: [ApplicationComponent, NavbarComponent, SidebarComponent,
@@ -28,6 +29,7 @@ import {AngularRaveModule} from 'angular-rave';
         SharedModule,
         AppMaterialModule,
         AngularRaveModule,
+        MDBBootstrapModule.forRoot()
     ],
     providers: [
         AuthenticationService,

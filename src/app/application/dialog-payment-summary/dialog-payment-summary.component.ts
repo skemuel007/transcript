@@ -8,7 +8,7 @@ import * as jsPDF from 'jspdf';
 @Component({
   selector: 'app-dialog-payment-summary',
   templateUrl: './dialog-payment-summary.component.html',
-  styleUrls: ['./dialog-payment-summary.component.sass']
+  styleUrls: ['./dialog-payment-summary.component.scss']
 })
 export class DialogPaymentSummaryComponent implements OnInit {
 

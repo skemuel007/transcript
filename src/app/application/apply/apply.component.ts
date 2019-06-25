@@ -10,7 +10,7 @@ import { RaveOptions } from 'angular-rave';
 @Component({
   selector: 'app-apply',
   templateUrl: './apply.component.html',
-  styleUrls: ['./apply.component.sass']
+  styleUrls: ['./apply.component.scss']
 })
 export class ApplyComponent implements OnInit {
 

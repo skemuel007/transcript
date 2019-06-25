@@ -11,7 +11,7 @@ import {DialogPaymentSummaryComponent} from '../dialog-payment-summary/dialog-pa
 @Component({
   selector: 'app-payment-history',
   templateUrl: './payment-history.component.html',
-  styleUrls: ['./payment-history.component.sass']
+  styleUrls: ['./payment-history.component.scss']
 })
 export class PaymentHistoryComponent implements OnInit {
   // loading property

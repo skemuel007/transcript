@@ -15,6 +15,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from '../_shared/helpers/jwt.interceptor';
 import {ErrorInterceptor} from '../_shared/helpers/error.interceptor';
 import { NavBarComponent } from './_shared/nav-bar/nav-bar.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NavBarComponent } from './_shared/nav-bar/nav-bar.component';
       AuthRoutingModule,
       SharedModule,
       AppMaterialModule,
+      MDBBootstrapModule.forRoot()
   ],
   providers: [
       AuthenticationService,
@@ -40,7 +42,8 @@ import { NavBarComponent } from './_shared/nav-bar/nav-bar.component';
       },
       {
           provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true
-      }
+      },
+      AuthenticationService
   ],
   entryComponents: [],
 })
